@@ -1,5 +1,4 @@
 ﻿using CsvHelper.Configuration.Attributes;
-using TestProject.Database;
 
 namespace TestProject.Core.Models
 {

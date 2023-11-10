@@ -24,7 +24,7 @@ namespace TestProject.Tests
             var streamMock = Stream.Null;
             var reader = new ReaderMock();
             var writer = new WriterMock();
-            var processor = new Processor(reader, writer);
+            var processor = new EmployeeProcessor(reader, writer);
 
 
             //Act
@@ -69,7 +69,7 @@ namespace TestProject.Tests
         }
     }
 
-    public class WriterMock : IWriter
+    public class WriterMock : IEmployeeWriter
     {
         public async Task<IEnumerable<Employee>> Write(IEnumerable<Employee> records)
         {
@@ -77,12 +77,12 @@ namespace TestProject.Tests
             foreach (var employee in records)
             {
                 employee.Id = k++;
+                yield return employee;
             }
-            return records;
         }
 
     }
-    public class ReaderMock : IReader
+    public class ReaderMock : IEmployeeReader
     {
         public IEnumerable<EmployeeRecords> Read(Stream stream)
         {

@@ -1,11 +1,6 @@
 using FluentAssertions;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
-using System.Net.WebSockets;
 using TestProject.Core.Impl;
-using TestProject.Core.Interfaces;
 using TestProject.Core.Models;
-using TestProject.Database;
 
 namespace TestProject.Tests
 {
@@ -15,7 +10,7 @@ namespace TestProject.Tests
         public void TypeParseTest()
         {
             //Arrange
-            var reader = new CSVReader();
+            var reader = new CSVEmployeeReader();
             var content = """
                 Personnel_Records.Payroll_Number,Personnel_Records.Forenames,Personnel_Records.Surname,Personnel_Records.Date_of_Birth,Personnel_Records.Telephone,Personnel_Records.Mobile,Personnel_Records.Address,Personnel_Records.Address_2,Personnel_Records.Postcode,Personnel_Records.EMail_Home,Personnel_Records.Start_Date
                 COOP08,John ,William,26/01/1955,12345678,987654231,12 Foreman road,London,GU12 6JW,nomadic20@hotmail.co.uk,18/04/2013

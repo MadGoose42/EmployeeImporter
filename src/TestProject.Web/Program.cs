@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using TestProject.Core.Impl;
+using TestProject.Core.Interfaces;
 using TestProject.Database;
 
 namespace TestProject.Web
@@ -19,8 +20,9 @@ namespace TestProject.Web
                     .LogTo(Console.WriteLine, LogLevel.Information)
                     .EnableSensitiveDataLogging()
                     .EnableDetailedErrors())
-                .AddSingleton<CSVReader>()
-                .AddTransient<Repository>()
+                .AddSingleton<IEmployeeReader, CSVEmployeeReader>()
+                .AddScoped<IEmployeeWriter, EmployeeRepository>()
+                .AddScoped<IEmployeeProcessor, EmployeeProcessor>()
                 .AddControllersWithViews();
 
             var app = builder.Build();

@@ -1,0 +1,61 @@
+﻿@using TestProject.Database;
+@model Employee[];
+
+
+<div class ="text-center">
+    <h2 class="display-4">Successfully uploaded @Model.Length records </h2>
+    <div id="myGrid" class="ag-theme-alpine" style="height: 500px"></div>
+</div>
+
+
+<script type="text/javascript">
+    function deselect() {
+        gridOptions.api.deselectAll()
+    }
+
+    const gridOptions = {
+
+        // each entry here represents one column
+        columnDefs: [
+            { field: "payroll_Number" },
+            { field: "forenames" },
+            { field: "surname" },
+            { field: "date_of_Birth" },
+            { field: "telephone" },
+            { field: "mobile" },
+            { field: "address" },
+            { field: "address_2" },
+            { field: "postcode" },
+            { field: "eMail_Home" },
+            { field: "start_Date" },
+        ],
+
+        // default col def properties get applied to all columns
+        defaultColDef: { sortable: true, filter: true, editable: true },
+
+        rowSelection: 'multiple', // allow rows to be selected
+        animateRows: true, // have rows animate to new positions when sorted
+
+    };
+
+    // get div to host the grid
+    const eGridDiv = document.getElementById("myGrid");
+    // new grid instance, passing in the hosting DIV and Grid Options
+    new agGrid.Grid(eGridDiv, gridOptions);
+
+    const data = @Json.Serialize(Model);
+
+    gridOptions.api.setRowData(data);
+</script>
+
+@section Scripts
+{
+    <!-- Include the JS for AG Grid -->
+    <script src="https://cdn.jsdelivr.net/npm/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+    <!-- Include the core CSS, this is needed by the grid -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/ag-grid-community/styles/ag-grid.css" />
+    <!-- Include the theme CSS, only need to import the theme you are going to use -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/ag-grid-community/styles/ag-theme-alpine.css" />
+}

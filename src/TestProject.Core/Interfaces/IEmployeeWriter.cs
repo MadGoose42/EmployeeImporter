@@ -1,9 +1,8 @@
-﻿using TestProject.Core.Models;
-using TestProject.Database;
+﻿using TestProject.Database;
 
 namespace TestProject.Core.Interfaces
 {
-    public interface IWriter
+    public interface IEmployeeWriter
     {
         Task<IEnumerable<Employee>> Write(IEnumerable<Employee> Records);
     }

@@ -1,11 +1,11 @@
 ﻿using TestProject.Core.Interfaces;
 using TestProject.Database;
-using IReader = TestProject.Core.Interfaces.IReader;
-using IWriter = TestProject.Core.Interfaces.IWriter;
+using IEmployeeReader = TestProject.Core.Interfaces.IEmployeeReader;
+using IEmployeeWriter = TestProject.Core.Interfaces.IEmployeeWriter;
 
 namespace TestProject.Core.Impl
 {
-    internal record Processor(IReader Reader, IWriter Writer) : IProcessor
+    public record EmployeeProcessor(IEmployeeReader Reader, IEmployeeWriter Writer) : IEmployeeProcessor
     {
         public async Task<IEnumerable<Employee>> Process(Stream stream)
         {
@@ -24,11 +24,10 @@ namespace TestProject.Core.Impl
                 Personnel_Records_EMail_Home = rec.Personnel_Records_EMail_Home,
                 Personnel_Records_Start_Date = rec.Personnel_Records_Start_Date
             })
-                .OrderBy(x => x.Personnel_Records_Surname)
                 .ToArray();
             //var mappedRecords = Mapper.Map<IEnumerable<Employee>>(records);
             var writtenRecords = await Writer.Write(employees);
-            return writtenRecords;
+            return writtenRecords.OrderBy(x => x.Personnel_Records_Surname);
         }
     }
 }

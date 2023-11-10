@@ -17,7 +17,7 @@ namespace TestProject.Tests
                 .ConfigureWarnings(b => b.Ignore(InMemoryEventId.TransactionIgnoredWarning))
                 .Options;
             var context = new TestProjectDbContext(options);
-            var repo = new Repository(context);
+            var repo = new EmployeeRepository(context);
             //var employees = ;
 
             //Act

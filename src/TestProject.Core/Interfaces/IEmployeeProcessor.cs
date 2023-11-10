@@ -1,9 +1,8 @@
-﻿using TestProject.Core.Models;
-using TestProject.Database;
+﻿using TestProject.Database;
 
 namespace TestProject.Core.Interfaces
 {
-    internal interface IProcessor
+    public interface IEmployeeProcessor
     {
         Task<IEnumerable<Employee>> Process(Stream stream);
     }

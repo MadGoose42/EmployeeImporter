@@ -2,7 +2,7 @@
 
 namespace TestProject.Core.Interfaces
 {
-    public interface IReader
+    public interface IEmployeeReader
     {
         IEnumerable<EmployeeRecords> Read(Stream stream);
     }

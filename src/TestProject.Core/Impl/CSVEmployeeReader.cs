@@ -1,14 +1,11 @@
 ﻿using CsvHelper;
 using System.Globalization;
-using System.IO;
-using System.Text;
-using TestProject.Core.Interfaces;
 using TestProject.Core.Models;
-using IReader = TestProject.Core.Interfaces.IReader; // ambiguity with CSVHelper
+using IEmployeeReader = TestProject.Core.Interfaces.IEmployeeReader; // ambiguity with CSVHelper
 
 namespace TestProject.Core.Impl
 {
-    public class CSVReader : IReader
+    public class CSVEmployeeReader : IEmployeeReader
     {
         public IEnumerable<EmployeeRecords> Read(Stream stream)
             => ReadInternal(new StreamReader(stream));
