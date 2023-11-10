@@ -7,13 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\TestProject.Core\TestProject.Core.csproj" />
     <ProjectReference Include="..\TestProject.Core\TestProject.Core.csproj" />
     <ProjectReference Include="..\TestProject.Database\TestProject.Database.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="UploadedFiles\" />
   </ItemGroup>
 
   <ItemGroup>

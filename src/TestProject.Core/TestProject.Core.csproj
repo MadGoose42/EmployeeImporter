@@ -29,7 +29,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\TestProject.Database\TestProject.Database.csproj" />
     <ProjectReference Include="..\TestProject.Database\TestProject.Database.csproj" />
   </ItemGroup>
 

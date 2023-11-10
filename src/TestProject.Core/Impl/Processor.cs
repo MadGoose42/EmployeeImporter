@@ -24,6 +24,7 @@ namespace TestProject.Core.Impl
                 Personnel_Records_EMail_Home = rec.Personnel_Records_EMail_Home,
                 Personnel_Records_Start_Date = rec.Personnel_Records_Start_Date
             })
+                .OrderBy(x => x.Personnel_Records_Surname)
                 .ToArray();
             //var mappedRecords = Mapper.Map<IEnumerable<Employee>>(records);
             var writtenRecords = await Writer.Write(employees);
