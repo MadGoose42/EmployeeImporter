@@ -4,6 +4,8 @@ namespace TestProject.Database
 {
     public class Employee
     {
+        //Representation of a row in DB
+
         public int Id { get; set; }
         [JsonPropertyName("payroll_Number")]
         public string Personnel_Records_Payroll_Number { get; set; }

@@ -44,6 +44,7 @@ namespace TestProject.Tests
 
             //Assert
             writtenData.Should().BeEquivalentTo(
+                // expected result
                 new Employee[]
                 {
                     new Employee

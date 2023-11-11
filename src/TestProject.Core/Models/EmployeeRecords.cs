@@ -4,6 +4,8 @@ namespace TestProject.Core.Models
 {
     public class EmployeeRecords
     {
+        // Representation of parsed csv rows
+
         [Name("Personnel_Records.Payroll_Number")]
         public string Personnel_Records_Payroll_Number { get; set; }
         [Name("Personnel_Records.Forenames")]

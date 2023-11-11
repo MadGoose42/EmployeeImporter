@@ -7,7 +7,7 @@ namespace TestProject.Tests
     public class ParserTests
     {
         [Fact]
-        public void TypeParseTest()
+        public void ParseTest()
         {
             //Arrange
             var reader = new CSVEmployeeReader();

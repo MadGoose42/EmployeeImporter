@@ -31,6 +31,8 @@ namespace TestProject.Web.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        // returns grid
         [HttpPost]
         public async Task<IActionResult> Index([FromForm]UploadModel uploadModel)
         {
