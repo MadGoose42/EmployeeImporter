@@ -1,4 +1,4 @@
-# Employee record importer for Synel setup
+# Employee record importer setup
 
 To use this project you need SQL Server om this pc with configured login for this project.
 
